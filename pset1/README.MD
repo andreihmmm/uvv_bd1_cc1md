@@ -1,1 +1,2 @@
-
+Esta pasta é destinada a assuntos relativos ao PSET1, no qual um banco de dados em PostGreSQL será produzido numa máquina virtual em Linux.
+Dentre as ferramentas utilizadas estão o Architect e o terminal.
