@@ -8,3 +8,5 @@ Nesta pasta estão inseridos os arquivos pedidos pelo professor para que seja av
 Este arquivo .architect contém o projeto lógico do esquema "lojas". Este projeto esteve presente na prova do 1º bimestre e não é de minha autoria, cabendo à mim apenas replicá-lo no SQL Power Architect.
 ### uvv_bd1_cc1md.pdf
 Imagem salva em arquivo .pdf do resultado do projeto lógico produzido no SQL Power Architect.
+### uvv_bd1_cc1md.sql
+Script do projeto pronto para ser executado no terminal. Esta versão contém erros como atributos compostos e multivalorados por exemplo. O apontamento de possíveis soluções para esses problemas foi escrito em papel almaço e entregue ao professor junto a questões referentes ao funcionamento do Git e do GitHub, erros no projeto lógico sobre a implementação do projeto no PostgreSQL.
