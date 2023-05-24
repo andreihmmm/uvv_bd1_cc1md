@@ -1,8 +1,8 @@
-psql -U postgres; --descobrir como colocar senha
-
-DROP ROLE IF EXISTS andrei;
-CREATE ROLE andrei WITH CREATEDB CREATEUSER ENCRYPTED PASSWORD 'computacao@raiz';
+--PGPASSWORD='computacao@raiz' psql -U postgres < ~/Desktop/script/script.sql
+DROP SCHEMA IF EXISTS lojas CASCADE;
 DROP DATABASE IF EXISTS uvv;
+DROP ROLE IF EXISTS andrei;
+CREATE ROLE andrei WITH LOGIN CREATEDB CREATEROLE ENCRYPTED PASSWORD 'computacao@raiz';
 CREATE DATABASE uvv WITH
 OWNER andrei
 TEMPLATE template0
@@ -10,9 +10,7 @@ ENCODING UTF8
 LC_COLLATE 'pt_BR.UTF-8'
 LC_CTYPE 'pt_BR.UTF-8'
 ALLOW_CONNECTIONS TRUE;
-psql -U andrei -d uvv; --descobrir como colocar senha
 CREATE SCHEMA lojas AUTHORIZATION andrei;
-SET SEARCH_PATH TO lojas, "$user", public;
 ALTER USER andrei
 SET SEARCH_PATH TO lojas, "$user", public;
 CREATE TABLE lojas.clientes (
@@ -45,7 +43,7 @@ CREATE TABLE lojas.produtos (
                 imagem_ultima_atualizacao DATE,
                 CONSTRAINT pk_produtos PRIMARY KEY (produto_id)
 );
-COMMENT ON TABLE lojas.produtos IS 'Tabela contendo dados acerca dos produtos.'
+COMMENT ON TABLE lojas.produtos IS 'Tabela contendo dados acerca dos produtos.';
 COMMENT ON COLUMN lojas.produtos.produto_id IS 'Coluna de identificação para a tabela "produtos". É a PK da tabela.';
 COMMENT ON COLUMN lojas.produtos.nome IS 'Esse campo serve para indicar o nome do produto. Não aceita nulos.';
 COMMENT ON COLUMN lojas.produtos.preco_unitario IS 'Valor da unidade de cada produto referido na tabela.';
@@ -71,7 +69,7 @@ CREATE TABLE lojas.lojas (
                 logo_ultima_atualizacao DATE,
                 CONSTRAINT pk_lojas PRIMARY KEY (loja_id)
 );
-COMMENT ON TABLE lojas.lojas IS 'Tabela que contém dados referentes às lojas.'
+COMMENT ON TABLE lojas.lojas IS 'Tabela que contém dados referentes às lojas.';
 COMMENT ON COLUMN lojas.lojas.loja_id IS 'Essa coluna é o identificador exclusivo de cada loja. Serve de PK.';
 COMMENT ON COLUMN lojas.lojas.nome IS 'Nome de cada uma das lojas incluídas na tabela. É um atributo que não aceita nulos.';
 COMMENT ON COLUMN lojas.lojas.endereco_web IS 'URL da página da loja caso exista.';
@@ -93,7 +91,7 @@ CREATE TABLE lojas.pedidos (
                 loja_id NUMERIC(38) NOT NULL,
                 CONSTRAINT pk_pedidos PRIMARY KEY (pedido_id)
 );
-COMMENTO ON TABLE lojas.pedidos IS 'Tabela que reúne dados acerca dos pedidos feitos pelos clientes.'
+COMMENT ON TABLE lojas.pedidos IS 'Tabela que reúne dados acerca dos pedidos feitos pelos clientes.';
 COMMENT ON COLUMN lojas.pedidos.pedido_id IS 'Campo de identificação exclusiva da tabela "pedidos".  Serve de PK.';
 COMMENT ON COLUMN lojas.pedidos.data_hora IS 'Indica o horário em que o pedido foi feito. É um campo que não aceita nulos.';
 COMMENT ON COLUMN lojas.pedidos.cliente_id IS 'Essa coluna identifica o cliente que fez o pedido através de uma FK com a tabela "clientes".';
@@ -126,7 +124,7 @@ CREATE TABLE lojas.pedidos_itens (
                 envio_id NUMERIC(38) NOT NULL,
                 CONSTRAINT pk_pedidos_itens PRIMARY KEY (pedido_id, produto_id)
 );
-COMMENT ON TABLE lojas.pedidos_itens IS 'Tabela com dados referentes aos itens contidos nos pedidos.'
+COMMENT ON TABLE lojas.pedidos_itens IS 'Tabela com dados referentes aos itens contidos nos pedidos.';
 COMMENT ON COLUMN lojas.pedidos_itens.pedido_id IS 'Este campo representa o identificador do pedido em questão. É uma PK nesta tabela e, ao mesmo tempo, uma FK que referencia a tabela "pedidos".';
 COMMENT ON COLUMN lojas.pedidos_itens.produto_id IS 'Esta coluna diz respeito ao produto que será referenciado. Serve de PK nesta tabela e FK para a tabela "produtos".';
 COMMENT ON COLUMN lojas.pedidos_itens.numero_da_linha IS 'Esse campo indica a ordem dos produtos no pedido.';
@@ -142,7 +140,7 @@ CREATE TABLE lojas.estoques (
                 quantidade NUMERIC(38) NOT NULL,
                 CONSTRAINT pk_estoques PRIMARY KEY (estoque_id)
 );
-COMMENT ON TABLE lojas.estoques IS 'Tabela cujos dados se referem aos estoques de cada produto contido nas lojas.'
+COMMENT ON TABLE lojas.estoques IS 'Tabela cujos dados se referem aos estoques de cada produto contido nas lojas.';
 COMMENT ON COLUMN lojas.estoques.estoque_id IS 'Esta coluna serve para a identificação exclusiva dos estoques. É a PK da tabela.';
 COMMENT ON COLUMN lojas.estoques.loja_id IS 'FK que indica a loja cujo estoque está sendo apresentado.';
 COMMENT ON COLUMN lojas.estoques.produto_id IS 'Indica a qual produto está sendo referenciado por cada estoque_id.';
