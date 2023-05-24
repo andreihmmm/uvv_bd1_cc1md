@@ -1,6 +1,6 @@
 # INTRODUÇÃO
 Esta pasta é destinada a assuntos relativos ao PSET1, no qual um banco de dados em PostgreSQL foi produzido numa máquina virtual em Linux.
-> Dentre as ferramentas utilizadas estão o Architect e o terminal.
+> Dentre as ferramentas utilizadas estão o SQL Power Architect, DBeaver e o terminal do Linux.
 ### Resumo do trabalho:
 Nesta pasta estão inseridos os arquivos pedidos pelo professor para que seja avaliada minha habilidade na criação de bancos de dados em PostgreSQL, bem como desenvolver capacidades de solução de problemas e autodidatismo.
 # Arquivos presentes na pasta:
