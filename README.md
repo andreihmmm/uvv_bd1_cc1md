@@ -1,5 +1,5 @@
-## Pasta relativa a matéria BANCO DE DADOS 1.
+## Banco de Dados 1
 ### Cabeçalho:
 **Nome**: Andrei Alves Fracalossi
 **Professor**: Abrantes Araújo
-### Detalhes:
+### Detalhes: Pasta relativa a matéria BANCO DE DADOS 1.
