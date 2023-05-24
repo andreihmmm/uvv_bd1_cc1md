@@ -2,4 +2,5 @@
 ### Cabeçalho:
 **Nome**: Andrei Alves Fracalossi
 **Professor**: Abrantes Araújo
-### Detalhes: Pasta relativa a matéria BANCO DE DADOS 1.
+### Detalhes: 
+Pasta relativa a matéria BANCO DE DADOS 1.
