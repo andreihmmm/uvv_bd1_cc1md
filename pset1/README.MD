@@ -10,3 +10,8 @@ Este arquivo .architect contém o projeto lógico do esquema "lojas". Este proje
 Imagem salva em arquivo .pdf do resultado do projeto lógico produzido no SQL Power Architect.
 ### uvv_bd1_cc1md.sql
 Script do projeto pronto para ser executado no terminal. Esta versão contém erros como atributos compostos e multivalorados por exemplo. O apontamento de possíveis soluções para esses problemas foi escrito em papel almaço e entregue ao professor junto a questões referentes ao funcionamento do Git e do GitHub, erros no projeto lógico e sobre a implementação do projeto no PostgreSQL.
+
+## COMO EXECUTAR O SCRIPT NO TERMINAL
+É necessário usar o comando : <br>
+PGPASSWORD='computacao@raiz' psql -U postgres < {_~/Desktop/script/script.sql_} (AQUI DEVE ESTAR O CAMINHO PARA O ARQUIVO)
+
