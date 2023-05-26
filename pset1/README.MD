@@ -13,5 +13,5 @@ Script do projeto pronto para ser executado no terminal. Esta versão contém er
 
 #### COMO EXECUTAR O SCRIPT NO TERMINAL
 É necessário usar o comando : <br>
-PGPASSWORD='computacao@raiz' psql -U postgres < *_~/Desktop/script/script.sql_* (AQUI DEVE ESTAR O CAMINHO PARA O ARQUIVO) <br>
+*_PGPASSWORD='suaSenha' psql -U postgres_* (AQUI VOCÊ DEVE SE CONECTAR AO ROOT COM SUA SENHA) < *_~/caminho/para/o/arquivo_* (AQUI DEVE ESTAR O CAMINHO PARA O ARQUIVO) <br>
 Este comando está presente na primeira linha do script em forma de comentário.
