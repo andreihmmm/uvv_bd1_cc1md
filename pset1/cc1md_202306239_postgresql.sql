@@ -1,5 +1,5 @@
 -- PGPASSWORD='computacao@raiz' psql -U postgres < ~/Desktop/script/script.sql
-/*Esta parte inicial do script serve para deletar, caso existam, o esquema lojas, o banco de 
+/*Esta parte inicial do script serve para deletar, caso existam, o banco de 
 dados uvv e a role 'andrei'*/
 DROP DATABASE IF EXISTS uvv;
 DROP ROLE IF EXISTS andrei;
@@ -7,6 +7,7 @@ DROP ROLE IF EXISTS andrei;
 /*Aqui é criada a role andrei, com permissões para criar outras roles e bancos de dados. 
 Essa role possui uma senha criptografada.*/
 CREATE ROLE andrei WITH LOGIN CREATEDB CREATEROLE ENCRYPTED PASSWORD 'computacao@raiz';
+
 /*Esta é a instrução para criar o banco de dados com todas as especificações contidas no 
 arquivo do PSET1.*/
 CREATE DATABASE uvv WITH
@@ -16,14 +17,17 @@ ENCODING UTF8
 LC_COLLATE 'pt_BR.UTF-8'
 LC_CTYPE 'pt_BR.UTF-8'
 ALLOW_CONNECTIONS TRUE;
+
 --Este comando é usado para acessar o banco de dados "uvv"
 \c uvv;
+
 /*Quando se acessa o banco de dados "uvv" o usuário padrão é o "postgres", tornando a ser 
 necessário uma especificação para entrar na role "andrei" de fato*/
 SET ROLE andrei;
 
 --Aqui é criado o esquema lojas, com autorização dada a role "andrei"
 CREATE SCHEMA lojas AUTHORIZATION andrei;
+
 /*Essas alterações foram feitas conforme foi pedido no PSET1 para que "lojas se tornasse o 
  *  primeiro item no search_path padrão role "andrei"*/
 ALTER ROLE andrei
@@ -281,4 +285,3 @@ CHECK (endereco_fisico is not null or endereco_web is not null);
 
 --Este é um comentário para o banco de dados recém criado
 comment on database uvv is 'Este banco de dados armazena esquemas relativos às atividades da UVV. Neste trabalho o único esquema produzido foi o "lojas".';
-
